@@ -1,0 +1,115 @@
+learned from -- https://www.youtube.com/watch?v=xlABhbnNrfI&ab_channel=JamesWillett
+blog post -- https://jameswillett.dev/getting-started-with-material-for-mkdocs/#initial-installation
+Material Docs Site -- https://squidfunk.github.io/mkdocs-material/
+
+first instll mkdocs in a python environment
+    -- pip install mkdocs-material
+
+
+then create mkdocs
+    -- mkdocs new .
+
+
+set your mkdocs.yml file
+
+    site_name: My MkDocs Material Documentation
+    site_url: https://stiename.example
+    theme:
+        name: material
+
+
+then run the mkdocs
+    -- mkdocs serve
+
+
+then install yaml extension by redhat
+and add this code in your setting.json of vscode
+
+  "yaml.schemas": {
+    "https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
+  },
+  "yaml.customTags": [
+    "!ENV scalar",
+    "!ENV sequence",
+    "!relative scalar",
+    "tag:yaml.org,2002:python/name:material.extensions.emoji.to_svg",
+    "tag:yaml.org,2002:python/name:material.extensions.emoji.twemoji",
+    "tag:yaml.org,2002:python/name:pymdownx.superfences.fence_code_format"
+  ]
+
+
+
+for dark and light mode add this code to the mkdocs.yml file
+also the font can be added.
+
+theme:
+  name: material
+  font:
+    text: Merriweather Sans
+    code: Red Hat Mono
+  palette:
+    # Dark Mode
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Dark mode
+      primary: teal
+      accent: deep purple
+
+    # Light Mode
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Light mode
+      primary: blue
+      accent: deep orange
+
+
+
+for emoji and stuff go to material docs site
+site link -- https://squidfunk.github.io/mkdocs-material/
+then go to reference and icons,Emoji in website to find whatever you want
+but first add this code to you makdocs.yml file
+
+markdown_extensions:
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+
+
+to change logo of the website go to makdocs.yml file add this lines
+
+icon:
+logo: fontawesome/brands/twitch
+
+to set it to an actual image create a folder assets inside docs 
+and add your logo there first then add this line of code only
+
+logo: assets/logo.png
+
+to change favicon 
+
+favicon: assets/favicon.svg
+
+
+
+to add a footer in your docs website
+
+theme: (inside theme add bellow 2 lines)
+  features:
+    - navigation.footer
+
+to add socila links
+
+extra:
+  social:
+    - icon: simple/youtube
+      link: https://youtube.com/@james-willett
+    - icon: simple/linkedin
+      link: https://linkedin.com/in/willettjames
+
+to add copyright message
+
+copyright: Copyright &copy; 2024 James Willett
